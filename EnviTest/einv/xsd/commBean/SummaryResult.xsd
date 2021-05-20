@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:GEINV:SummaryResult:3.0" xmlns="urn:GEINV:SummaryResult:3.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GenericResult_3.0.xsd"/>
+	<xsd:element name="SummaryResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RoutingInfo">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="From" type="PartyInfoType"/>
+							<xsd:element name="FromVAC" type="RoutingInfoType"/>
+							<xsd:element name="To" type="PartyInfoType"/>
+							<xsd:element name="ToVAC" type="RoutingInfoType"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="DetailList">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Message" minOccurs="1" maxOccurs="5000">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Info" type="InfoType"/>
+										<xsd:element name="Result" type="ResultType"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

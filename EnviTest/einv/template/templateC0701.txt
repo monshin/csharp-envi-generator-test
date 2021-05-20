@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VoidInvoice xsi:schemaLocation="urn:GEINV:eInvoiceMessage:C0701:3.2 C0701.xsd" xmlns="urn:GEINV:eInvoiceMessage:C0701:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <VoidInvoiceNumber>{{data.VoidInvoiceNumber}}</VoidInvoiceNumber>
+  <InvoiceDate>{{data.InvoiceDate}}</InvoiceDate>
+  <BuyerId>{{data.BuyerId}}</BuyerId>
+  <SellerId>{{data.SellerId}}</SellerId>
+  <VoidDate>{{data.VoidDate}}</VoidDate>
+  <VoidTime>{{data.VoidTime}}</VoidTime>
+  <VoidReason>{{data.VoidReason}}</VoidReason>
+  {{#if data.Remark}}
+  <Remark>{{data.Remark}}</Remark>
+  {{/if}}
+</VoidInvoice>

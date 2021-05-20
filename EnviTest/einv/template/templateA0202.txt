@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CancelInvoiceConfirm xsi:schemaLocation="urn:GEINV:eInvoiceMessage:A0202:3.2 A0202.xsd" xmlns="urn:GEINV:eInvoiceMessage:A0202:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CancelInvoiceNumber>{{data.CancelInvoiceNumber}}</CancelInvoiceNumber>
+  <InvoiceDate>{{data.InvoiceDate}}</InvoiceDate>
+  <BuyerId>{{data.BuyerId}}</BuyerId>
+  <SellerId>{{data.SellerId}}</SellerId>
+  <CancelDate>{{data.CancelDate}}</CancelDate>
+  <CancelTime>{{data.CancelTime}}</CancelTime>
+  {{#if data.Remark}}
+  <Remark>{{data.Remark}}</Remark>
+  {{/if}}
+</CancelInvoiceConfirm>

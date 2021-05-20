@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AllowanceConfirm xsi:schemaLocation="urn:GEINV:eInvoiceMessage:B0102:3.2 B0102.xsd" xmlns="urn:GEINV:eInvoiceMessage:B0102:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AllowanceNumber>{{data.AllowanceNumber}}</AllowanceNumber>
+  <AllowanceDate>{{data.AllowanceDate}}</AllowanceDate>
+  <BuyerId>{{data.BuyerId}}</BuyerId>
+  <SellerId>{{data.SellerId}}</SellerId>
+  <ReceiveDate>{{data.ReceiveDate}}</ReceiveDate>
+  <ReceiveTime>{{data.ReceiveTime}}</ReceiveTime>
+  <AllowanceType>{{data.AllowanceType}}</AllowanceType>
+  {{#if data.Remark}}
+  <Remark>{{data.Remark}}</Remark>
+  {{/if}}
+</AllowanceConfirm>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns=" urn:GEINV:E0501:3.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace=" urn:GEINV:E0501:3.1" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GenericResult_3.0.xsd" />
+	<!--營業人電子發票配號檔:E0501 -->
+	<xsd:element name="InvoiceAssignNo">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!--公司統一編號 -->
+				<xsd:element name="Ban" type="BAN" />
+				<!--發票類別 -->
+				<xsd:element name="InvoiceType" type="InvoiceTypeEnum" />
+				<!--發票期別 -->
+				<xsd:element name="YearMonth">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="5" />
+							<xsd:maxLength value="5" />
+							<xsd:pattern value="\d{3}0[2|4|6|8]|\d{3}1[0|2]" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--發票字軌 -->
+				<xsd:element name="InvoiceTrack">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="2" />
+							<xsd:maxLength value="2" />
+							<xsd:pattern value="[A-Z]{2}" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--發票起號 -->
+				<xsd:element name="InvoiceBeginNo">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="8" />
+							<xsd:maxLength value="8" />
+							<xsd:pattern value="\d{8}" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--發票迄號 -->
+				<xsd:element name="InvoiceEndNo">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="8" />
+							<xsd:maxLength value="8" />
+							<xsd:pattern value="\d{8}" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<!--本組數 -->
+				<xsd:element name="InvoiceBooklet">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:long">
+							<xsd:totalDigits value="10" />
+							<xsd:minInclusive value="0" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

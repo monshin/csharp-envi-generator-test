@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"	attributeFormDefault="unqualified">
+	<xsd:simpleType name="MessageTypeEnum">
+		<xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A0101"/><!-- A0101.	開立發票 -->
+      <xsd:enumeration value="A0102"/><!-- A0102.	發票接收確認 -->
+      <xsd:enumeration value="A0201"/><!-- A0201.	作廢發票 -->
+      <xsd:enumeration value="A0202"/><!-- A0202.	作廢發票接收確認 -->
+      <xsd:enumeration value="A0301"/><!-- A0301.	退回發票 -->
+      <xsd:enumeration value="A0302"/><!-- A0302.	退回發票接收確認 -->
+      <xsd:enumeration value="A0401"/><!-- A0401.	開立發票 -->
+      <xsd:enumeration value="A0501"/><!-- A0501.	作廢發票 -->
+      <xsd:enumeration value="A1101"/><!-- A1101.	開立發票(鋼鐵) -->
+      <xsd:enumeration value="A1401"/><!-- A1401.	開立發票(鋼鐵) -->
+      <xsd:enumeration value="B0101"/><!-- B0101.	折讓證明單 -->
+      <xsd:enumeration value="B0102"/><!-- B0102.	折讓證明單接收確認 -->
+      <xsd:enumeration value="B0201"/><!-- B0201.	作廢折讓證明單 -->
+      <xsd:enumeration value="B0202"/><!-- B0202.	作廢折讓證明單接收確認 -->
+      <xsd:enumeration value="B0501"/><!-- B0501.	折讓證明單通知 -->
+      <xsd:enumeration value="B0502"/><!-- B0502.	折讓證明單通知接收確認 -->
+      <xsd:enumeration value="B1101"/><!-- B1101.	折讓證明單(鋼鐵) -->
+      <xsd:enumeration value="B1301"/><!-- B1301.	開立折讓證明單(鋼鐵) -->
+      <xsd:enumeration value="B1501"/><!-- B1501.	折讓證明單通知(鋼鐵) -->
+      <xsd:enumeration value="C0401"/><!-- C0401.	開立發票 -->
+      <xsd:enumeration value="C0501"/><!-- C0501.	作廢發票 -->
+      <xsd:enumeration value="C0601"/><!-- C0601.	退回發票 -->
+      <xsd:enumeration value="C0701"/><!-- C0701.	註銷發票 -->
+      <xsd:enumeration value="D0301"/><!-- D0301.	開立折讓證明單 -->
+      <xsd:enumeration value="D0401"/><!-- D0401.	作廢折讓證明單 -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BAN">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+			<xsd:minLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- InvoiceType (發票類別) -->
+	<xsd:simpleType name="InvoiceTypeEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+			<xsd:minLength value="2"/>
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="PartyInfoType">
+		<xsd:sequence>
+			<xsd:element name="PartyId" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RoutingInfoType">
+		<xsd:sequence>
+			<xsd:element name="RoutingId" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InfoType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="Size" type="xsd:positiveInteger"/>
+			<xsd:element name="MessageType" type="MessageTypeEnum"/>
+			<xsd:element name="Service" type="xsd:string"/>
+			<xsd:element name="Action" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResultType">
+		<xsd:sequence>
+			<xsd:element name="Total" type="ResultDetailType"/>
+			<xsd:element name="Good" type="ResultDetailType"/>
+			<xsd:element name="Failed" type="ResultDetailType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResultDetailType">
+		<xsd:sequence>
+			<xsd:element name="Count" type="xsd:positiveInteger"/>
+			<xsd:element name="Invoices" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Invocie" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ReferenceNumber">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:minLength value="10"/>
+												<xsd:maxLength value="16"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+									<xsd:element name="InvoiceDate" type="xsd:date"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

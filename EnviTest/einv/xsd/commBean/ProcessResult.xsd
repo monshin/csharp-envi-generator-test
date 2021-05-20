@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:GEINV:ProcessResult:3.0" xmlns="urn:GEINV:ProcessResult:3.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:include schemaLocation="GenericResult_3.0.xsd"/>
+	<xsd:element name="ProcessResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RoutingInfo">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="From" type="PartyInfoType"/>
+							<xsd:element name="FromVAC" type="RoutingInfoType"/>
+							<xsd:element name="To" type="PartyInfoType"/>
+							<xsd:element name="ToVAC" type="RoutingInfoType"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="MessageInfo" type="MessageInfoType"/>
+				<xsd:element name="Result" type="Result"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="MessageInfoType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="Size" type="xsd:string"/>
+			<xsd:element name="MessageType" type="MessageTypeEnum"/>
+			<xsd:element name="Service" type="xsd:string"/>
+			<xsd:element name="Action" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Result">
+		<xsd:sequence>
+			<xsd:element name="Info" minOccurs="1" maxOccurs="10000">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Code" type="xsd:string"/>
+						<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Parameter0" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Parameter1" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Parameter2" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Parameter3" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Parameter4" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

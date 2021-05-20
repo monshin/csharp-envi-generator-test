@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BranchTrackBlank xsi:schemaLocation="urn:GEINV:eInvoiceMessage:E0402:3.2 E0402.xsd" xmlns="urn:GEINV:eInvoiceMessage:E0402:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Main>
+    <HeadBan>{{data.HeadBan}}</HeadBan>
+    <BranchBan>{{data.BranchBan}}</BranchBan>
+    <InvoiceType>{{data.InvoiceType}}</InvoiceType>
+    <YearMonth>{{data.YearMonth}}</YearMonth>
+    <InvoiceTrack>{{data.InvoiceTrack}}</InvoiceTrack>
+  </Main>
+  <Details>
+    {{#each data.BranchTrackBlankItems}}
+    <BranchTrackBlankItem>
+      <InvoiceBeginNo>{{InvoiceBeginNo}}</InvoiceBeginNo>
+      <InvoiceEndNo>{{InvoiceEndNo}}</InvoiceEndNo>
+    </BranchTrackBlankItem>
+    {{/each}}
+  </Details>
+</BranchTrackBlank>

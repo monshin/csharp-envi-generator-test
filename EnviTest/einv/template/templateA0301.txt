@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RejectInvoice xsi:schemaLocation="urn:GEINV:eInvoiceMessage:A0301:3.2 A0301.xsd" xmlns="urn:GEINV:eInvoiceMessage:A0301:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <RejectInvoiceNumber>{{data.RejectInvoiceNumber}}</RejectInvoiceNumber>
+  <InvoiceDate>{{data.InvoiceDate}}</InvoiceDate>
+  <BuyerId>{{data.BuyerId}}</BuyerId>
+  <SellerId>{{data.SellerId}}</SellerId>
+  <RejectDate>{{data.RejectDate}}</RejectDate>
+  <RejectTime>{{data.RejectTime}}</RejectTime>
+  <RejectReason>{{data.RejectReason}}</RejectReason>
+  {{#if data.Remark}}
+  <Remark>{{data.Remark}}</Remark>
+  {{/if}}
+</RejectInvoice>

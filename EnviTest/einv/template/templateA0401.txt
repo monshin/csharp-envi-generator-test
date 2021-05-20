@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Invoice xsi:schemaLocation="urn:GEINV:eInvoiceMessage:A0401:3.2 A0401.xsd" xmlns="urn:GEINV:eInvoiceMessage:A0401:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Main>
+    <InvoiceNumber>{{data.InvoiceNumber}}</InvoiceNumber>
+    <InvoiceDate>{{data.InvoiceDate}}</InvoiceDate>
+    <InvoiceTime>{{data.InvoiceTime}}</InvoiceTime>
+    <Seller>
+      <Identifier>{{data.SellerIdentifier}}</Identifier>
+      <Name>{{data.SellerName}}</Name>
+    </Seller>
+    <Buyer>
+      <Identifier>{{data.BuyerIdentifier}}</Identifier>
+      <Name>{{data.BuyerName}}</Name>
+    </Buyer>
+    {{#if data.CheckNumber}}
+    <CheckNumber>{{data.CheckNumber}}</CheckNumber>
+    {{/if}}
+    {{#if data.BuyerRemark}}
+    <BuyerRemark>{{data.BuyerRemark}}</BuyerRemark>
+    {{/if}}
+    {{#if data.MainRemark}}
+    <MainRemark>{{data.MainRemark}}</MainRemark>
+    {{/if}}
+    {{#if data.CustomsClearanceMark}}
+    <CustomsClearanceMark>{{data.CustomsClearanceMark}}</CustomsClearanceMark>
+    {{/if}}
+    {{#if data.Category}}
+    <Category>{{data.Category}}</Category>
+    {{/if}}
+    {{#if data.RelateNumber}}
+    <RelateNumber>{{data.RelateNumber}}</RelateNumber>
+    {{/if}}
+    <InvoiceType>{{data.InvoiceType}}</InvoiceType>
+    {{#if data.GroupMark}}
+    <GroupMark>*</GroupMark>
+    {{/if}}
+    <DonateMark>{{data.DonateMark}}</DonateMark>
+    {{#if data.BondedAreaConfirm}}
+    <BondedAreaConfirm>{{data.BondedAreaConfirm}}</BondedAreaConfirm>
+    {{/if}}
+    {{#if data.Attachment}}
+    <Attachment>{{data.Attachment}}</Attachment>
+    {{/if}}
+  </Main>
+  <Details>
+    {{#each data.ProductItems}}
+    <ProductItem>
+      <Description>{{Description}}</Description>
+      <Quantity>{{Quantity}}</Quantity>
+      <Unit>{{Unit}}</Unit>
+      <UnitPrice>{{UnitPrice}}</UnitPrice>
+      <Amount>{{Amount}}</Amount>
+      <SequenceNumber>{{SequenceNumber}}</SequenceNumber>
+      {{#if Remark}}
+      <Remark>{{Remark}}</Remark>
+      {{/if}}
+      {{#if RelateNumber}}
+      <RelateNumber>{{RelateNumber}}</RelateNumber>
+      {{/if}}
+    </ProductItem>
+    {{/each}}
+  </Details>
+  <Amount>
+    <SalesAmount>{{data.SalesAmount}}</SalesAmount>
+    <TaxType>{{data.TaxType}}</TaxType>
+    <TaxRate>{{data.TaxRate}}</TaxRate>
+    <TaxAmount>{{data.TaxAmount}}</TaxAmount>
+    <TotalAmount>{{data.TotalAmount}}</TotalAmount>
+    {{#if data.DiscountAmount}}
+    <DiscountAmount>{{data.DiscountAmount}}</DiscountAmount>
+    {{/if}}
+    {{#if data.OriginalCurrencyAmount}}
+    <OriginalCurrencyAmount>{{data.OriginalCurrencyAmount}}</OriginalCurrencyAmount>
+    {{/if}}
+    {{#if data.ExchangeRate}}
+    <ExchangeRate>{{data.ExchangeRate}}</ExchangeRate>
+    {{/if}}
+    {{#if data.Currency}}
+    <Currency>{{data.Currency}}</Currency>
+    {{/if}}
+  </Amount>
+</Invoice>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Allowance xsi:schemaLocation="urn:GEINV:eInvoiceMessage:B0401:3.2 B0401.xsd" xmlns="urn:GEINV:eInvoiceMessage:B0401:3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Main>
+    <AllowanceNumber>{{data.AllowanceNumber}}</AllowanceNumber>
+    <AllowanceDate>{{data.AllowanceDate}}</AllowanceDate>
+    <Seller>
+      <Identifier>{{data.SellerIdentifier}}</Identifier>
+      <Name>{{data.SellerName}}</Name>
+    </Seller>
+    <Buyer>
+      <Identifier>{{data.BuyerIdentifier}}</Identifier>
+      <Name>{{data.BuyerName}}</Name>
+    </Buyer>
+    <AllowanceType>{{data.AllowanceType}}</AllowanceType>
+  </Main>
+  <Details>
+    {{#each data.ProductItems}}
+    <ProductItem>
+      <OriginalInvoiceDate>{{OriginalInvoiceDate}}</OriginalInvoiceDate>
+      <OriginalInvoiceNumber>{{OriginalInvoiceNumber}}</OriginalInvoiceNumber>
+      <OriginalSequenceNumber>{{OriginalSequenceNumber}}</OriginalSequenceNumber>
+      <OriginalDescription>{{OriginalDescription}}</OriginalDescription>
+      <Quantity>{{Quantity}}</Quantity>
+      <Unit>{{Unit}}</Unit>
+      <UnitPrice>{{UnitPrice}}</UnitPrice>
+      <Amount>{{Amount}}</Amount>
+      <Tax>{{Tax}}</Tax>
+      <AllowanceSequenceNumber>{{AllowanceSequenceNumber}}</AllowanceSequenceNumber>
+      <TaxType>{{TaxType}}</TaxType>
+    </ProductItem>
+    {{/each}}
+  </Details>
+  <Amount>
+    <TaxAmount>{{data.TaxAmount}}</TaxAmount>
+    <TotalAmount>{{data.TotalAmount}}</TotalAmount>
+  </Amount>
+</Allowance>
